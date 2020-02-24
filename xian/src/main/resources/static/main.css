@@ -1,0 +1,29 @@
+a {
+    text-decoration:none;
+    color: black
+}
+
+.center_blank {
+    margin: 60px;
+}
+
+.right_ {
+     text-align: right;
+ }
+.little_ {
+    font-size: 12px;
+}
+
+.left_ {
+    text-align: left;
+}
+
+.center_ ,.foot_ {
+    text-align: center;
+}
+
+
+.t_area{
+    width:300px;
+    overflow-y:visible
+}

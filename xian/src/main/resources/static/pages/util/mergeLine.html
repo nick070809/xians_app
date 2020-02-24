@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>我的的工具集合</title>
+        <link rel="icon" href="../../imgs/spiderman.ico" type="image/x-icon"/>
+        <link rel="stylesheet" href="../../main.css" type="text/css"/>
+        <script type="text/javascript" src="../jquery.js"></script>
+        <script type="text/javascript">
+
+            var sendRequest = function () {
+                var  requsetStr = $("#requsetStr").val();
+                var  LengthLimit = $("#LengthLimit").val();
+                $.ajax(
+                    {
+                        url: "/util/mergeLine",
+                        type: "POST",
+                        dataType: "text",
+                        data: {"str":requsetStr,"LengthLimit":LengthLimit},
+                        success: function (result) {
+                            //$("#requsetStr_").html(result);
+                            $("#responseStr").val(result);
+                        },
+                        error: function (xhr, status, p3, p4) {
+                            var err = "Error " + " " + status + " " + p3;
+                            $("#responseStr").val(err);
+                        }
+                    });
+            }
+
+
+            var sendRequest2 = function () {
+                var  requsetStr = $("#responseStr").val();
+                $.ajax(
+                    {
+                        url: "/util/toLine",
+                        type: "POST",
+                        dataType: "text",
+                        data: {"str":requsetStr},
+                        success: function (result) {
+                            //$("#requsetStr_").html(result);
+                            $("#requsetStr").val(result);
+                        },
+                        error: function (xhr, status, p3, p4) {
+                            var err = "Error " + " " + status + " " + p3;
+                            $("#requsetStr").val(err);
+                        }
+                    });
+            }
+
+
+
+            document.onkeydown = function (e) { // 回车提交表单
+                var theEvent = window.event || e;
+                var code = theEvent.keyCode || theEvent.which || theEvent.charCode;
+                if (code == 13) {
+                    sendRequest();
+                }
+            }
+
+
+        </script>
+    </head>
+    <body>
+
+        <div class="center_blank">
+            <h2>多行合并一行,以','链接</h2><p/><br/>
+            长度换行:<input type="text" name="LengthLimit" id="LengthLimit" value=""/><br/>
+            <textarea rows="12" cols="200" id ="requsetStr"></textarea>
+            <p>
+                <a href="javascript:0"  id="b01" type="button" onclick="sendRequest();"> 》》》</a>
+                <a href="../../index.html">返回主页</a>
+                <a href="javascript:0"  id="b02" type="button" onclick="sendRequest2();">《《《</a>
+            </p>
+
+            <textarea rows="13" cols="200" id ="responseStr"></textarea><p/><br/>
+
+
+            <p class="foot_">
+                <a  href='https://nick070809.github.io' target="_blank"><img src="../../imgs/github.png"/> </a>
+                <a href="#"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu" /></a>
+                <br>
+                <a>© 2019 nick8sky.github.io all rights reserved xian .</a>
+            </p>
+        </div>
+
+
+    </body>
+</html>

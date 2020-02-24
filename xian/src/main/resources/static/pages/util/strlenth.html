@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>我的的工具集合</title>
+        <link rel="icon" href="../../imgs/spiderman.ico" type="image/x-icon"/>
+        <link rel="stylesheet" href="../../main.css" type="text/css"/>
+
+        <script type="text/javascript" src="../jquery.js"></script>
+        <script type="text/javascript">
+
+            var getStrLenth = function () {
+                var  str_ = $("#str_").val();
+                var lenth = str_.length ;
+                $("#result_").html(lenth);
+            }
+
+
+            /* document.onkeydown = function (e) { // 回车提交表单
+                 var theEvent = window.event || e;
+                 var code = theEvent.keyCode || theEvent.which || theEvent.charCode;
+                 if (code == 13) {
+                     getStrLenth();
+                 }
+             }*/
+
+
+        </script>
+    </head>
+    <body>
+
+        <div class="center_blank">
+            <h2>获取文本长度</h2><p/><br/>
+            <textarea rows="12" cols="200" id ="str_"></textarea>
+            <p class="left_" id="result_"></p>
+            <p>
+                <a href="javascript:0"  id="b01" type="button" onclick="getStrLenth();"> 统计</a>
+                <a href="../../index.html">返回主页</a>
+            </p>
+            <p class="foot_">
+                <a  href='https://nick070809.github.io' target="_blank"><img src="../../imgs/github.png"/> </a>
+                <a href="#"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu" /></a>
+                <br>
+                <a>© 2019 nick8sky.github.io all rights reserved xian .</a>
+            </p>
+        </div>
+
+
+    </body>
+</html>

@@ -1,0 +1,172 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>我的的工具集合</title>
+        <link rel="icon" href="../../imgs/spiderman.ico" type="image/x-icon"/>
+        <link rel="stylesheet" href="../../main.css" type="text/css"/>
+        <script type="text/javascript" src="../jquery.js"></script>
+        <script type="text/javascript">
+
+
+            var sendRequest = function () {
+                $.ajax(
+                    {
+                        url: "/util/readLocal",
+                        type: "POST",
+                        dataType: "text",
+                        data: {"path": $("#filepath").val()},
+                        success: function (result) {
+                            $("#result_").val(result);
+                        },
+                        error: function (xhr, status, p3, p4) {
+                            var err = "Error " + " " + status + " " + p3;
+                            $("#result_").val(err);
+                        }
+                    });
+            }
+
+
+
+            var sendRequest2 = function () {
+                $.ajax(
+                    {
+                        url: "/util/listLocal",
+                        type: "POST",
+                        dataType: "text",
+                        data: {"path": $("#filepath").val()},
+                        success: function (result) {
+                            $("#result_").val(result);
+                        },
+                        error: function (xhr, status, p3, p4) {
+                            var err = "Error " + " " + status + " " + p3;
+                            $("#result_").val(err);
+                        }
+                    });
+            }
+
+
+            var sendRequest3 = function () {
+                $.ajax(
+                    {
+                        url: "/util/readLocal2",
+                        type: "POST",
+                        dataType: "text",
+                        data: {"path": $("#filepath").val()},
+                        success: function (result) {
+                            $("#result_").val(result);
+                        },
+                        error: function (xhr, status, p3, p4) {
+                            var err = "Error " + " " + status + " " + p3;
+                            $("#result_").val(err);
+                        }
+                    });
+            }
+
+            var sendRequest4 = function () {
+                $.ajax(
+                    {
+                        url: "/util/sendRemoteBm",
+                        type: "POST",
+                        dataType: "text",
+                        data: {"path": $("#result_").val()},
+                        success: function (result) {
+                            $("#result_").val(result);
+                        },
+                        error: function (xhr, status, p3, p4) {
+                            var err = "Error " + " " + status + " " + p3;
+                            $("#result_").val(err);
+                        }
+                    });
+            }
+
+
+            var sendRequest5 = function () {
+                $.ajax(
+                    {
+                        url: "/util/sendRemote",
+                        type: "POST",
+                        dataType: "text",
+                        data: {"path": $("#result_").val()},
+                        success: function (result) {
+                            $("#result_").val(result);
+                        },
+                        error: function (xhr, status, p3, p4) {
+                            $("#result_").val(JSON.stringify(xhr));
+                        }
+                    });
+            }
+
+
+            var sendRequest6 = function () {
+                $.ajax(
+                    {
+                        url: "/util/putKey",
+                        type: "get",
+                        success: function (result) {
+                            $("#result_").val(result);
+                        },
+                        error: function (xhr, status, p3, p4) {
+                            $("#result_").val(JSON.stringify(xhr));
+                        }
+                    });
+            }
+
+            var sendRequest7 = function () {
+                $.ajax(
+                    {
+                        url: "/util/save",
+                        type: "POST",
+                        dataType: "text",
+                        data: {"path": $("#result_").val()},
+                        success: function (result) {
+                            $("#result_").val(result);
+                        },
+                        error: function (xhr, status, p3, p4) {
+                            $("#result_").val(JSON.stringify(xhr));
+                        }
+                    });
+            }
+
+
+
+            document.onkeydown = function (e) { // 回车提交表单
+                var theEvent = window.event || e;
+                var code = theEvent.keyCode || theEvent.which || theEvent.charCode;
+                if (code == 13) {
+                    sendRequest();
+                }
+            }
+
+
+        </script>
+
+    </head>
+    <body>
+
+        <div class="center_blank">
+            文件路径:<input type="text" name="filepath" id="filepath" size="82px"
+                        value="/home/xianguang.skx/nohup.out"/>
+            <br/>
+            <textarea    rows="25" cols="140" id ="result_"></textarea>
+            <p>
+                <a href="javascript:0" id="b01" type="button" onclick="sendRequest();"> 》》》</a>
+                <a href="javascript:0" id="b02" type="button" onclick="sendRequest2();"> 列表</a>
+                <a href="javascript:0" id="b03" type="button" onclick="sendRequest3();"> ㊙️</a>
+                <a href="javascript:0" id="b04" type="button" onclick="sendRequest4();"> 📧</a>
+                <a href="javascript:0" id="b05" type="button" onclick="sendRequest5();"> 邮件</a>
+                <a href="javascript:0" id="b06" type="button" onclick="sendRequest6();"> PUTK</a>
+                <a href="javascript:0" id="b07" type="button" onclick="sendRequest7();"> 保存</a>
+                <a href="../../index.html">返回主页</a>
+            </p>
+
+            <p class="foot_">
+                <a href='https://nick070809.github.io' target="_blank"><img src="../../imgs/github.png"/> </a>
+                <a href="#"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu"/></a>
+                <br>
+                <a>© 2019 nick8sky.github.io all rights reserved xian .</a>
+            </p>
+        </div>
+
+
+    </body>
+</html>

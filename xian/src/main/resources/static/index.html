@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>我的的工具集合</title>
+        <link rel="icon" href="imgs/spiderman.ico" type="image/x-icon"/>
+        <link rel="stylesheet" href="main.css" type="text/css"/>
+        <!-- <script type="text/javascript" src="pages/jquery.js"></script>-->
+
+        <script type="text/javascript">
+            window.onload = function () {
+                var days = dateDistanceNow("2020-05-07");
+                document.getElementById("days").innerHTML = days;
+
+            }
+
+
+            //两个时间相差天数 兼容firefox chrome
+            function dateDistanceNow(targetTime) {    //sDate1和sDate2是2006-12-18格式
+
+                var sDate1 = new Date();
+                var sDate2 = Date.parse(targetTime);
+                var dateSpan = sDate2 - sDate1;
+                dateSpan = Math.abs(dateSpan);
+                var iDays = Math.floor(dateSpan / (24 * 3600 * 1000));
+                return iDays
+            };
+
+
+        </script>
+
+
+    </head>
+    <body>
+
+        <div style="text-align:center;">
+            <h2>hello , you</h2>
+            <p/><br/>
+        </div>
+        <div class="center_blank">
+            <p><a href="pages/util/idbsql.html">去除sql中文空格,多余的英文空格</a></p>
+            <p><a href="pages/util/strlenth.html">统计文本长度</a></p>
+            <p><a href="pages/util/mergeLine.html">多行合并</a></p>
+            <p><a href="pages/util/getMiddleStr.html">取中间部分字符串</a></p>
+            <p><a href="pages/util/getRemoteJarDiff.html">获取远程项目jar目录区别</a></p>
+            <p><a href="pages/util/getRemoteLog.html">获取远程日志</a></p>
+            <p><a href="pages/util/uploadFile.html">文件上传</a></p>
+            <p><a href="pages/util/readFile.html">文件读取</a></p>
+            <hr/>
+            <p><a href="http://tool.chinaz.com/tools/urlencode.aspx" target="_blank">url解码</a></p>
+            <p><a href="https://riqicha.51240.com" target="_blank">日期差计算</a></p>
+            <p><a href="http://tool.chinaz.com/tools/diff/" target="_blank">文本比较</a></p>
+            <hr/>
+
+            <p class="foot_">
+                <a href='https://nick070809.github.io' target="_blank"><img src="../imgs/github.png"/> </a>
+                <a href="#"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu"/></a>
+                <br>
+                <a>© 2019 nick8sky.github.io all rights reserved xian .<span id="days"></span></a>
+            </p>
+        </div>
+
+
+    </body>
+</html>

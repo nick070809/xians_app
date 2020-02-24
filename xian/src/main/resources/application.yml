@@ -1,0 +1,20 @@
+server:
+  port: 10080
+spring:
+  application:
+    name: web
+  mvc:
+    view:
+      prefix: /pages/
+      suffix: .html
+
+  http:
+    multipart:
+      maxFileSize: 1024MB
+      maxRequestSize: 1024MB
+
+
+logging:
+  level:
+    com.baeldung.testloglevel: INFO
+    root: INFO
