@@ -204,8 +204,8 @@ public class UtilCtrl {
     @RequestMapping("/save")
     public String save(@RequestBody SimpleObject simpleObject) {
         try {
-            String filePath = System.getProperty("user.home") + "/temp/"+DateUtil.getDateTimeStr(new Date(),"yyyyMMddHHmmss")+".txt";
-            FileUtil.writeStringToFile(simpleObject.getContent(),filePath);
+            String filePath = System.getProperty("user.home") + "/temp/"+DateUtil.getDateTimeStr(new Date(),"yyyyMMdd")+".txt";
+            FileUtil.appedStringToFile("\n"+simpleObject.getContent(),filePath);
         } catch (Exception e) {
             return e.getMessage();
         }
