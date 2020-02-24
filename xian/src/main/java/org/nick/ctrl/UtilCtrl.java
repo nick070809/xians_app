@@ -13,6 +13,7 @@ import org.kx.util.mail.MailSendUtil;
 import org.kx.util.remote.JarCompare3;
 import org.kx.util.remote.RemoteLog;
 import org.kx.util.rsa.RsaCommon;
+import org.nick.dto.SimpleObject;
 import org.nick.util.ServletUitl;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -201,10 +202,10 @@ public class UtilCtrl {
     }
 
     @RequestMapping("/save")
-    public String save(String path) {
+    public String save(@RequestBody SimpleObject simpleObject) {
         try {
             String filePath = System.getProperty("user.home") + "/temp/"+DateUtil.getDateTimeStr(new Date(),"yyyyMMddHHmmss")+".txt";
-            FileUtil.writeStringToFile(path,filePath);
+            FileUtil.writeStringToFile(simpleObject.getContent(),filePath);
         } catch (Exception e) {
             return e.getMessage();
         }
